@@ -6,12 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-jobs:
-  UnitTests:
-    runs-on: 
-       - ubuntu-latest-self
-       - self-hosted
-
 #steps:
 #    - name: Checkout viv
 #      uses: actions/checkout@v2
@@ -74,6 +68,9 @@ commands:
 jobs:
 
   python38:
+    runs-on: 
+       - ubuntu-latest-self
+       - self-hosted
     parallelism: 1
     docker:
       - image: circleci/python:3.8
@@ -87,6 +84,9 @@ jobs:
       - test_steps_python
 
   python39:
+    runs-on: 
+       - ubuntu-latest-self
+       - self-hosted
     parallelism: 1
     docker:
       - image: circleci/python:3.9
