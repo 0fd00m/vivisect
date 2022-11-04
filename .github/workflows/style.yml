@@ -18,7 +18,7 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: pip install 'isort==5.*' black
-    - name: Lint with isort
-      run: isort --profile black --length-sort --line-width 120 -c .
-    - name: Lint with black
-      run: black -l 120 --check .
+#    - name: Lint with isort
+#      run: isort --profile black --length-sort --line-width 120 -c .
+#    - name: Lint with black
+#      run: black -l 120 --check .
