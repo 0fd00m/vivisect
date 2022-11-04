@@ -9,7 +9,9 @@ on:
 jobs:
   code_style:
     runs-on: 
-        ubuntu-latest-self
+       - ubuntu-latest-self
+       - self-hosted
+       
     steps:
     - name: Checkout viv
       uses: actions/checkout@v2
