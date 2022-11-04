@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  code_style:
+  UnitTests:
     runs-on: 
        - ubuntu-latest-self
        - self-hosted
