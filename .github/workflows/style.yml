@@ -8,7 +8,8 @@ on:
 
 jobs:
   code_style:
-    runs-on: ubuntu-latest
+    runs-on: 
+        ubuntu-latest-self
     steps:
     - name: Checkout viv
       uses: actions/checkout@v2
