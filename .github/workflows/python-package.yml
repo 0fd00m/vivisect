@@ -26,9 +26,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        SUDO_ASKPASS=./password.sh
-        ./password.sh | sudo -S apt-get update
-        ./password.sh | sudo -S apt-get -qq install libfreetype6-dev liblcms2-dev ghostscript libffi-dev libjpeg-turbo-progs cmake imagemagick
+        SUDO_ASKPASS=/home/docker/actions-runner/password.sh
+        sudo apt-get update
+        sudo apt-get -qq install libfreetype6-dev liblcms2-dev ghostscript libffi-dev libjpeg-turbo-progs cmake imagemagick
         python -m pip install --upgrade pip
         python -m pip install pytest #flake8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
