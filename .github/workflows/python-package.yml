@@ -27,8 +27,8 @@ jobs:
     - name: Install dependencies
       run: |
         SUDO_ASKPASS=./password.sh
-        sudo apt-get update
-        sudo apt-get -qq install libfreetype6-dev liblcms2-dev ghostscript libffi-dev libjpeg-turbo-progs cmake imagemagick
+        SUDO_ASKPASS=./password.sh sudo apt-get update
+        SUDO_ASKPASS=./password.sh sudo apt-get -qq install libfreetype6-dev liblcms2-dev ghostscript libffi-dev libjpeg-turbo-progs cmake imagemagick
         python -m pip install --upgrade pip
         python -m pip install pytest #flake8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
