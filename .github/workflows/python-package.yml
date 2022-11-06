@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  VIVTESTFILES=/home/docker/actions-runner/vivtestfiles
+  
 jobs:
   build:
 
@@ -29,10 +32,13 @@ jobs:
         SUDO_ASKPASS=/home/docker/actions-runner/password.sh
         sudo -A apt-get update
         sudo -A apt-get -qq install libgl1 libfreetype6-dev liblcms2-dev ghostscript libffi-dev libjpeg-turbo-progs cmake imagemagick
-        python -m pip install --upgrade pip
+        python -m pip install --upgrade pip wheel
         python -m pip install pytest #flake8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        
+    -name: Install VIVTESTFILES
+      run: |
+        git clone https://github.com/vivisect/vivtestfiles.git $VIVTESTFILES
+
  #   - name: Lint with flake8
  #     run: |
  #       # stop the build if there are Python syntax errors or undefined names
@@ -41,4 +47,4 @@ jobs:
  #       flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run UnitTests
       run: |
-        python -m unittest discover
+        python3 -m unittest discover
