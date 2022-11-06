@@ -37,7 +37,12 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Install Vivisect TESTFILES
       run: |
-        git clone https://github.com/vivisect/vivtestfiles.git $VIVTESTFILES
+        if [ -e $VIVTESTFILES ]; then
+          cd $VIVTESTFILES
+          git pull
+        else
+          git clone https://github.com/vivisect/vivtestfiles.git $VIVTESTFILES
+        fi
         
  #   - name: Lint with flake8
  #     run: |
