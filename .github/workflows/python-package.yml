@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 
 env:
-  VIVTESTFILES=/home/docker/actions-runner/vivtestfiles
+  VIVTESTFILES: /home/docker/actions-runner/vivtestfiles
   
 jobs:
   build:
